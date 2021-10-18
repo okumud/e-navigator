@@ -1,0 +1,29 @@
+version: '3'
+services:
+  rails:
+    build:
+      context: ./rails
+      args:
+         - USER_ID=1000
+         - GROUP_ID=1000
+         - RUBY_VER=2.6.5
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE_URL=postgres://e-navigator:e-navigator@database/e-navigator
+    links:
+      - database:database
+    volumes:
+       - ../:/opt/myapp/
+  database:
+    # the container only supports 5.x
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
+      # If you want to change password, 
+      # see postgres.init/001_create.sql
+    #command: --sql_mode=""
+    volumes:
+       - ./postgres.init:/docker-entrypoint-initdb.d:ro
+       - ./postgres-passwd:/run/secrets/postgres-passwd:ro
+
