@@ -11,6 +11,8 @@ services:
       - 3000:3000
     environment:
       - DATABASE_URL=postgres://e-navigator:e-navigator@database/e-navigator
+      - RAILS_ENV=development
+      #- RAILS_ENV=production
     links:
       - database:database
     volumes:

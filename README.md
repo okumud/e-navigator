@@ -30,6 +30,57 @@ forkしたらローカルにcloneしておいてください。
 
 ![youre_on_rails](https://github.com/feedforce/e-navigator/wiki/images/youre_on_rails.png)
 
+## セットアップ(via docker)
+
+簡単に環境を準備するため、docker環境も準備しています。
+
+### 事前にインストールしておいて欲しいもの(via docker)
+
+- docker
+- docker-compose
+
+### セットアップの手順(via docker)
+
+セットアップの手順は以下の通りです。
+
+Github上でforkして、これから作るRailsアプリケーションの雛形をコピーします。
+画面の右上にあるforkボタンを押すことで、自分のアカウントにこのアプリケーションをコピーしてくることができます。
+
+![fork_button](https://github.com/feedforce/e-navigator/wiki/images/fork_button.jpg)
+
+forkしたらローカルにcloneしておいてください。
+
+次に、次のコマンドを実行します。
+```
+$ cd docker
+$ docker-compose up -d
+$ docker-compose ps
+```
+
+次のように表示されれば、準備完了です。
+
+```
+[force@test docker]$ sudo docker-compose ps
+      Name                     Command               State           Ports         
+-----------------------------------------------------------------------------------
+docker_adminer_1    entrypoint.sh docker-php-e ...   Up      0.0.0.0:3001->8080/tcp
+docker_database_1   docker-entrypoint.sh postgres    Up      5432/tcp              
+docker_rails_1      /opt/entrypoint.sh bundle  ...   Up      0.0.0.0:3000->3000/tcp
+```
+
+`http://localhost:3000`にアクセスしてください。
+
+いつもの画面が表示されればセットアップは完了です。
+
+![youre_on_rails](https://github.com/feedforce/e-navigator/wiki/images/youre_on_rails.png)
+
+railsコマンドを実行したい場合は次のコマンドを実行して下さい。
+
+```
+$ docker-compose exec rails bash
+```
+
+
 ## 作って欲しいもの
 
 面談の日程を調整するためのアプリケーションを作っていただきます。
