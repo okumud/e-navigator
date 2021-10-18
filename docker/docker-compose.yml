@@ -28,4 +28,14 @@ services:
     volumes:
        - ./postgres.init:/docker-entrypoint-initdb.d:ro
        - ./postgres-passwd:/run/secrets/postgres-passwd:ro
-
+  adminer:
+    image: adminer:standalone
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+    links:
+      - database
+    depends_on:
+      - database
+    ports:
+      - 3001:8080
+      
