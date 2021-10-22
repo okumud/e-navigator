@@ -4,6 +4,7 @@ services:
     build:
       context: ./rails
       args:
+        # You MUST follow your account's uid/gid for local volumes
          - USER_ID=1000
          - GROUP_ID=1000
          - RUBY_VER=2.6.5
