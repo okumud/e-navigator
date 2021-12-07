@@ -31,6 +31,6 @@
 
 en:
   hello: "Hello world"
-  login: "Log in"
-  logout: "Log out"
-  register: "Register"
+  login: "ログイン"
+  logout: "ログアウト"
+  register: "登録"
