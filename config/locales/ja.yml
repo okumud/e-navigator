@@ -29,8 +29,14 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+ja:
   login: "ログイン"
   logout: "ログアウト"
   register: "登録"
+  models:
+    users:
+      sex_types:
+        na: 未回答
+        male: 男
+        female: 女
+        another: 他
