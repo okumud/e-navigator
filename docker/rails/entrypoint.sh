@@ -15,6 +15,10 @@ if [ ! -f Gemfile ]; then
 else
   bundle install
 fi
+if [ ! -f config/webpacker.yml ]; then
+  echo install webpacker
+  bin/rails webpacker:install
+fi
 
 exec "$@"
 

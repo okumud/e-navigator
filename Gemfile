@@ -41,3 +41,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # for log-in 
 gem 'devise'
+
+# for heroku support
+gem 'webpacker'
+gem 'uglifier'
