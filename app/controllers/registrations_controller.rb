@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Registrations controller
 class RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters # , :only => [:create]
 

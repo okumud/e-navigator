@@ -7,3 +7,10 @@ require:
 
 AllCops:
   NewCops: enable
+
+# Offense count: 2
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
