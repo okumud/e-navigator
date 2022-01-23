@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ENavigator</title>
+    <title>e-Navigator</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_pack_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, edit_user_registration_path %>
+      <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to t('login'), new_user_session_path %>
+      <%= link_to t('register'), new_user_registration_path %>
+    <% end %>
   </body>
 </html>
